@@ -22,7 +22,7 @@ public class OneValCurs {
     private String dateRange1;
     @Attribute(name = DATE_RANGE2)
     private String dateRange2;
-    @ElementList(inline = true, entry = RECORD)
+    @ElementList(inline = true, entry = RECORD,required = false)
     private List<Record> records;
 
 

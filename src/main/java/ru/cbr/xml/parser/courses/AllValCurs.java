@@ -16,7 +16,7 @@ public class AllValCurs {
     private String date;
     @Attribute(name = NAME)
     private String name;
-    @ElementList(inline = true, entry = VALUTE)
+    @ElementList(inline = true, entry = VALUTE,required = false)
     private List<Valute> valuts;
 
 

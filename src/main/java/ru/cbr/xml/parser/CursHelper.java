@@ -13,7 +13,7 @@ import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class CoursesHelper {
+public class CursHelper {
     private static final Serializer serializer = new Persister(new AnnotationStrategy());
     public static final SimpleDateFormat linkDateFormatter = new SimpleDateFormat("dd/MM/yyyy");
     public static final SimpleDateFormat standardDateFormatter = new SimpleDateFormat("dd.MM.yyyy");
@@ -21,11 +21,16 @@ public class CoursesHelper {
     private static final String url1 = "http://www.cbr.ru/scripts/XML_daily.asp?date_req=%s";
     private static final String url2 = "http://www.cbr.ru/scripts/XML_dynamic.asp?date_req1=%1$s&date_req2=%2$s&VAL_NM_RQ=%3$s";
     private static final String url3 = "http://www.cbr.ru/scripts/XML_val.asp?d=%s";
-    //Коды валют устанавливаемые ежедневно
+    //ValCurs sets everyday
     private static final String SELD_FALSE = "0";
-    //Коды валют устанавливаемые ежемесячно
+    //ValCurs sets everymonth
     private static final String SELD_TRUE = "1";
 
+    /**
+     * Method can return value in 1 month range in future
+     * For example: Current day 01.01.2020 and if ask rates for 01.02.2020 then method returns AllValCurs.valuts
+     * but on 02.02.2020 AllValCurs.valuts == null
+     */
     public static AllValCurs getAllValutesCourses(Date date) throws Exception {
         String urlString = String.format(url1, linkDateFormatter.format(date));
         URL url = new URL(urlString);

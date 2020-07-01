@@ -1,12 +1,10 @@
 package ru.cbr.xml.parser.courses;
 
-import ru.cbr.xml.parser.converters.RecordConverter;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 import org.simpleframework.xml.convert.Convert;
-
-import java.math.BigDecimal;
+import ru.cbr.xml.parser.converters.RecordConverter;
 
 @Root
 @Convert(RecordConverter.class)
@@ -23,7 +21,7 @@ public class Record {
     @Element(name = NOMINAL)
     private int nominal;
     @Element(name = VALUE)
-    private BigDecimal value;
+    private Double value;
 
     public Record() {
     }
@@ -31,7 +29,7 @@ public class Record {
     public Record(@Attribute(name = DATE) String date,
                   @Attribute(name = ID) String id,
                   @Element(name = NOMINAL) int nominal,
-                  @Element(name = VALUE) BigDecimal value) {
+                  @Element(name = VALUE) Double value) {
         this.date = date;
         this.id = id;
         this.nominal = nominal;
@@ -62,11 +60,11 @@ public class Record {
         this.nominal = nominal;
     }
 
-    public BigDecimal getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(BigDecimal value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 

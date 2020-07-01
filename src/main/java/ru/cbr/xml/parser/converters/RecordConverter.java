@@ -1,11 +1,9 @@
 package ru.cbr.xml.parser.converters;
 
-import ru.cbr.xml.parser.courses.Record;
 import org.simpleframework.xml.convert.Converter;
 import org.simpleframework.xml.stream.InputNode;
 import org.simpleframework.xml.stream.OutputNode;
-
-import java.math.BigDecimal;
+import ru.cbr.xml.parser.courses.Record;
 
 import static ru.cbr.xml.parser.courses.Record.*;
 
@@ -21,7 +19,7 @@ public class RecordConverter implements Converter<Record> {
                 record.setNominal(Integer.parseInt(next.getValue()));
             } else if (VALUE.equals(next.getName())) {
                 String newString = next.getValue().trim().replace(",", ".");
-                record.setValue(new BigDecimal(newString));
+                record.setValue(Double.valueOf(newString));
             }
             next = node.getNext();
         }

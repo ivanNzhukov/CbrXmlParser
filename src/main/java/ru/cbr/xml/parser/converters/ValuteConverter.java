@@ -26,7 +26,7 @@ public class ValuteConverter implements Converter<Valute> {
                 valute.setName(next.getValue());
             } else if (VALUE.equals(next.getName())) {
                 String newString = next.getValue().trim().replace(",", ".");
-                valute.setValue(new BigDecimal(newString));
+                valute.setValue(Double.valueOf(newString));
             }
             next = node.getNext();
         }
@@ -34,6 +34,6 @@ public class ValuteConverter implements Converter<Valute> {
     }
 
     public void write(OutputNode node, Valute value) {
-        throw new UnsupportedOperationException("");
+        throw new UnsupportedOperationException("Not ready converter yet");
     }
 }

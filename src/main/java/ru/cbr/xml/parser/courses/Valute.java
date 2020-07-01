@@ -1,12 +1,10 @@
 package ru.cbr.xml.parser.courses;
 
-import ru.cbr.xml.parser.converters.ValuteConverter;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
 import org.simpleframework.xml.convert.Convert;
-
-import java.math.BigDecimal;
+import ru.cbr.xml.parser.converters.ValuteConverter;
 
 @Root(name = "Valute")
 @Convert(ValuteConverter.class)
@@ -29,7 +27,7 @@ public class Valute {
     @Element(name = NAME)
     private String name;
     @Element(name = VALUE)
-    private BigDecimal value;
+    private Double value;
 
     public Valute() {
     }
@@ -39,7 +37,7 @@ public class Valute {
                   @Element(name = CHARCODE) String charCode,
                   @Element(name = NOMINAL) int nominal,
                   @Element(name = NAME) String name,
-                  @Element(name = VALUE) BigDecimal value) {
+                  @Element(name = VALUE) Double value) {
         this.id = id;
         this.numCode = numCode;
         this.charCode = charCode;
@@ -88,11 +86,11 @@ public class Valute {
         this.name = name;
     }
 
-    public BigDecimal getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public void setValue(BigDecimal value) {
+    public void setValue(Double value) {
         this.value = value;
     }
 
